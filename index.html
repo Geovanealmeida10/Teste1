@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – Estudo</title>
+  <style>
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #000;
+    }
+
+    .login-container {
+      background: #111;
+      border: 2px solid #10B981;
+      border-radius: 8px;
+      padding: 24px;
+      width: 320px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 80px;
+      margin: 0 auto 16px;
+    }
+
+    .login-container h1 {
+      color: #fff;
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
+
+    .login-container input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: none;
+      border-radius: 4px;
+      background: #222;
+      color: #ddd;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .options label {
+      flex: 0 0 48%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .options input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    .options label:nth-child(2) { color: #10B981; } /* 1XBET */
+    .options label:nth-child(3) { color: #FBBF24; } /* MELBET */
+    .options label:nth-child(5) { color: #EF4444; } /* 888starz */
+    .options label:nth-child(6) { color: #F59E0B; } /* BETWINNER */
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      background: #10B981;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:active { transform: scale(0.98); }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <!-- Logo genérico para estudo -->
+    <img src="https://via.placeholder.com/80?text=Logo" alt="Logo" class="logo" />
+
+    <h1>Log in</h1>
+
+    <input type="text" id="activationCode" placeholder="activation code" />
+
+    <div class="options">
+      <label><input type="checkbox" value="LINEBET" />LINEBET</label>
+      <label><input type="checkbox" value="1XBET" checked />1XBET</label>
+      <label><input type="checkbox" value="MELBET" />MELBET</label>
+      <label><input type="checkbox" value="Megapari" />Megapari</label>
+      <label><input type="checkbox" value="888starz" />888starz</label>
+      <label><input type="checkbox" value="BETWINNER" />BETWINNER</label>
+    </div>
+
+    <button class="btn" onclick="activate()">Activate</button>
+  </div>
+
+  <script>
+    function activate() {
+      const code = document.getElementById('activationCode').value.trim();
+      const checked = Array.from(document.querySelectorAll('.options input:checked'))
+        .map(i => i.value);
+
+      if (!code) {
+        alert('Por favor, insira o código de ativação.');
+        return;
+      }
+
+      if (checked.length === 0) {
+        alert('Selecione ao menos uma opção.');
+        return;
+      }
+
+      // Simulação de processamento
+      alert(`Código: ${code}\nOpções: ${checked.join(', ')}`);
+    }
+  </script>
+</body>
+</html>
